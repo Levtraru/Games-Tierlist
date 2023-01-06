@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+/* General */
+:root {
+  --tier-f: #541517;
+  --tier-e: #993c25;
+  --tier-d: #e47224;
+  --tier-c: #a5bcc0;
+  --tier-b: #ffc700;
+  --tier-a: #00ffa6;
+  --tier-s: #521DFF;
+  --okey: #00af4f;
+  --black: #111;
+  --white: #eee;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--black);
+}
+
+/* ================================= Navbar ================================= */
+/* =========== Structure =========== */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.5rem;
+  background-color: #333;
+  z-index: 2;
+}
+#hamburger-menu {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  padding: 3rem 1rem 0 2rem;
+  text-align: right;
+  background-color: #333;
+  transform: translateY(-100vh);
+  transition: all 400ms ease-out;
+  height: 100vh;
+}
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+.nav-tier .nav-item .nav-link {
+  padding: 0 1.5rem;
+  border-radius: 0.2rem;
+  transition: all 300ms;
+}
+/* =========== Style =========== */
+.fa-solid.fa-bars {
+  padding-right: 1rem;
+  z-index: 2;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.nav-tier .nav-item {
+  border-radius: 0.2rem;
+}
+.nav-tier .nav-item .nav-link {
+  background-color: var(--white);
+  color: var(--black);
+}
+.nav-function .nav-item .nav-link:hover,
+.nav-title .nav-link:hover,
+.fa-solid.fa-bars:hover  {
+  color: var(--tier-a);
+}
+.nav-tier .nav-item:nth-of-type(1):hover {
+  background-color: var(--tier-f);
+}
+.nav-tier .nav-item:nth-of-type(2):hover {
+  background-color: var(--tier-e);
+}
+.nav-tier .nav-item:nth-of-type(3):hover {
+  background-color: var(--tier-d);
+}
+.nav-tier .nav-item:nth-of-type(4):hover {
+  background-color: var(--tier-c);
+}
+.nav-tier .nav-item:nth-of-type(5):hover {
+  background-color: var(--tier-b);
+}
+.nav-tier .nav-item:nth-of-type(6):hover {
+  background-color: var(--tier-a);
+}
+.nav-tier .nav-item:nth-of-type(7):hover {
+  background-color: var(--tier-s);
+}
+.nav-link, #hamburger-menu span {
+  color: var(--white);
+}
+.nav-hr {
+  height: 1px;
+  background-color: var(--white);
+  margin: 1rem 0;
+}
+
+/* Sections */
+.section-header {
+  background-color: var(--white);
+  color: #333;
+  padding: .2rem .2rem .2rem .5rem;
+  font-weight: 900;
+  font-size: 2rem;
+}

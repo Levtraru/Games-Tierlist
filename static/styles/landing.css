@@ -1,0 +1,54 @@
+.landing-container {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: 
+  "t t"
+  "a a"
+  "b b"
+  "c c"
+  "d d";
+}
+.landing-container a,
+.landing-container p {
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.landing-container p {
+  grid-area: t;
+  font-weight: 100;
+  background-color: #111;
+  color: var(--white);
+  position: relative;
+  top: 19px;
+  z-index: -1;
+}
+.tier-f {
+  background-color: var(--tier-f);
+}
+.tier-e {
+  background-color: var(--tier-e);
+}
+.tier-d {
+  background-color: var(--tier-d);
+}
+.tier-c {
+  background-color: var(--tier-c);
+}
+.tier-b {
+  background-color: var(--tier-b);
+}
+.tier-a {
+  background-color: var(--tier-a);
+}
+.tier-s {
+  background-color: var(--tier-s);
+  grid-area: a;
+}

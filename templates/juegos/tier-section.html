@@ -1,0 +1,32 @@
+{% extends 'layout.html' %} {% block title %} Index {% endblock %} {% block css
+  %}
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static',filename='styles/games.css') }}"
+  />
+  {% endblock %} {% block main %}
+  <header class="section-header">Index</header>
+  <section class="index-container">
+    <div class="index-wrapper">
+      {% for juego in juegos %}
+      <article class="game-card">
+        <span>{{juego[1]}}</span>
+        <a
+          class="btn-card btn-delete"
+          href="/destroy/{{juego[0]}}"
+          onclick="return confirm('Press OK to confirm.')"
+          >DELETE</a
+        >
+        <a class="btn-card btn-edit" href="/edit/{{juego[0]}}">EDIT</a>
+        <img
+          src="uploads/{{juego[2]}}"
+          width="200"
+          alt="{{juego[1]}} thumbnail"
+          class="game-card-img"
+        />
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endblock %}  

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %} {% block title %} Add Game {% endblock %}
+{% block css
+  %}
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static',filename='styles/form.css') }}"
+  />
+  {% endblock %}
+{% block main %}
+<form method="post" action="/store" enctype="multipart/form-data">
+  <header class="section-header">Add game</header>
+  <div class="form-wrapper">
+    <div class="form-body">
+      {% with messages= get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-msg {{category}}">{{message}}</div>
+            {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <p class="form-title">Game Data</p>
+      <p class="form-desc">Information to UPLOAD</p>
+      <p class="form-text">
+        <div class="form-group">
+          <label for="txtNombre">Title:</label>
+          <input id="txtNombre" class="form-control" type="text" name="txtNombre" placeholder="Introduce game's title">
+        </div>
+        <div class="form-group">
+          <label for="txtTier">Tier:</label>
+          <select id="txtTier" class="form-control" name="txtTier">
+            <option selected disabled>Select game's tier</option>
+            <option value="S">S</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="txtGenero">Genre(s):</label>
+          <input id="txtGenero" class="form-control" type="text" name="txtGenero" placeholder="Introduce game's genre(s)">
+        </div>
+        <div class="form-group">
+          <input id="txtImagen" class="form-control" type="file" name="txtImagen">
+          <label for="txtImagen">Upload a picture</label>
+        </div>
+        <div class="form-group">
+          <input class="btn-form btn-add" type="submit" value="ADD GAME">
+        </div>
+      </p>
+    </div>
+  </div>
+</form>
+<script src="{{ url_for('static',filename='scripts/forms-file-upload.js') }}"></script>
+{% endblock %}

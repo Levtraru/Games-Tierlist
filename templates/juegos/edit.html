@@ -1,0 +1,56 @@
+{% extends 'layout.html' %} {% block title %} Modify Game {% endblock %}
+{% block css
+  %}
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static',filename='styles/form.css') }}"
+  />
+  {% endblock %}
+{% block main %}
+{% for juego in juegos %}
+<form method="post" action="/update" enctype="multipart/form-data">
+  <div class="card">
+    <header class="section-header">Edit: {{ juego[1] }}</header>
+    <div class="form-wrapper">
+      <div class="form-body">
+        <p class="form-title">Game Data</p>
+        <p class="form-desc">Information to MODIFY</p>
+        <p class="form-text">
+          <input type="hidden" value="{{ juego[0] }}" name="txtID" id="txtID" />
+          <div class="form-group">
+            <label for="txtNombre">Title:</label>
+            <input id="txtNombre" value="{{ juego[1] }}" class="form-control" type="text" name="txtNombre">
+          </div>
+          <div class="form-group">
+            <label for="txtTier">Tier:</label>
+            <select id="txtTier" class="form-control" name="txtTier">
+              <option disabled>Select game's tier</option>
+              <option {% if juego[3]=="S" %} selected {% endif %} value="S">S</option>
+              <option {% if juego[3]=="A" %} selected {% endif %} value="A">A</option>
+              <option {% if juego[3]=="B" %} selected {% endif %} value="B">B</option>
+              <option {% if juego[3]=="C" %} selected {% endif %} value="C">C</option>
+              <option {% if juego[3]=="D" %} selected {% endif %} value="D">D</option>
+              <option {% if juego[3]=="E" %} selected {% endif %} value="E">E</option>
+              <option {% if juego[3]=="F" %} selected {% endif %} value="F">F</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="txtGenero">Genre(s):</label>
+            <input id="txtGenero" value="{{ juego[4] }}" class="form-control" type="text" name="txtGenero">
+          </div>
+          <div class="form-group">
+            <input id="txtImagen" class="form-control" type="file" name="txtImagen">
+            <label for="txtImagen">Upload a picture</label>
+          </div>
+          <div class="form-group">
+            <a class="btn-form btn-return" href="{{url_for('index')}}">RETURN</a>
+            <input class="btn-form btn-modify" type="submit" value="MODIFY">
+          </div>
+        </p>
+      </div>
+    </div>
+</form>
+<script src="{{ url_for('static',filename='scripts/forms-file-upload.js') }}"></script>
+{% endfor %}
+{% endblock %}

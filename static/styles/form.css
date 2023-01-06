@@ -1,0 +1,129 @@
+/* Structure */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.form-body {
+  position: relative;
+  background-color: #222;
+  color: var(--white);
+  padding: 2rem;
+  border-radius: .5rem;
+  border: 1px solid var(--white);
+  min-width: 25%;
+}
+.flash-msg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 6rem;
+  padding: .2rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.flash-error {
+  background-color: var(--tier-d);
+}
+.flash-success {
+  background-color: var(--okey);
+}
+/* Title & Desc */
+.form-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.form-desc {
+  text-indent: 1rem;
+  font-weight: 100;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #333;
+}
+
+/* Form */
+.form-group label:not(label[for="txtImagen"]) {
+  display: block;
+  font-weight: 300;
+  margin-bottom: .5rem;
+}
+.form-control,
+label[for="txtImagen"] {
+  width: 100%;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: .25rem;
+  border: none;
+  margin-bottom: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+}
+.form-control:focus {
+  outline: none;
+}
+#txtTier option {
+  font-weight: bold;
+}
+
+/* File upload */
+input[id="txtImagen"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+label[for="txtImagen"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 300;
+}
+label[for="txtImagen"]:hover {
+  box-shadow: inset 0px 0px 1px var(--white);
+}
+input[id="txtImagen"]:focus + label {
+  box-shadow: inset 0px 0px 1px var(--white);
+}
+
+/* Buttons */
+.form-group:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #333;
+}
+.btn-form {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: var(--white);
+  border: none;
+  font-size: 1rem;
+  padding: .5rem;
+  cursor: pointer;
+}
+.btn-form:hover,
+.btn-form:focus {
+  box-shadow:
+    inset 0px 0px 1px var(--white),
+    inset 0px 0px 8px 2px rgba(0, 0, 0, .5);
+  outline: none;
+}
+.btn-add {
+  background-color: var(--okey);
+  border-radius: .5rem;
+}
+.btn-return {
+  background-color: var(--tier-c);
+  border-radius: .5rem 0 0 .5rem;
+}
+.btn-modify {
+  background-color: var(--okey);
+  border-radius: 0 .5rem .5rem 0;
+}

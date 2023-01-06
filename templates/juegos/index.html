@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} {% block title %} Index {% endblock %} {% block css
+%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static',filename='styles/games.css') }}"
+/>
+{% endblock %} {% block main %}
+<header class="section-header">{{titulo}}</header>
+<section class="index-container">
+  <div class="index-wrapper">
+    {% for juego in juegos %}
+    <article class="game-card" onclick="expand(this)">
+      <span>{{juego[1]}}</span>
+      <a
+        class="btn-card btn-delete {% if titulo != 'Index' %}tierlist{% endif %}"
+        href="/destroy/{{juego[0]}}"
+        onclick="return confirm('Press OK to confirm.')"
+        >DELETE</a
+      >
+      <a class="btn-card btn-edit {% if titulo != 'Index' %}tierlist{% endif %}" href="/edit/{{juego[0]}}">EDIT</a>
+      <img
+        src="uploads/{{juego[2]}}"
+        width="200"
+        alt="{{juego[1]}} thumbnail"
+        class="game-card-img {% if titulo != 'Index' %}tierlist{% endif %}"
+      />
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<script>
+  /*
+  Only used for mobile, makes so all the contents of the card are displayed when clicked
+  */
+  function expand(card){
+    var btn1 = card.children[1]
+    var btn2 = card.children[2]
+    var img = card.children[3]
+    btn1.classList.toggle("active-btn");
+    btn2.classList.toggle("active-btn");
+    img.classList.toggle("active-img");
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}{% endblock %}
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/2a2e74e139.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <!-- Title -->
+      <h1 class="nav-title">
+        <a class="nav-link" href="{{url_for('landing')}}">Games Tierlist</a>
+      </h1>
+      <div id="hamburger-menu">
+        <!-- Hamburger menu top division -->
+        <ul class="nav-links nav-function">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('index')}}">Index</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('create')}}">Add Game</a>
+          </li>
+        </ul>
+        <div class="nav-hr"></div>
+        <!-- Hamburger menu bottom division -->
+        <span>Games by <br />Tier</span><br /><br />
+        <ul class="nav-links nav-tier">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('tier_F')}}">F</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link2" href="{{url_for('tier_E')}}">E</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link2" href="{{url_for('tier_D')}}">D</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link2" href="{{url_for('tier_C')}}">C</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link2" href="{{url_for('tier_B')}}">B</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link2" href="{{url_for('tier_A')}}">A</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('tier_S')}}">S</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Hamburger Menu Toggle -->
+      <i class="fa-solid fa-bars" onclick="navToggle()"></i>
+    </nav>
+    <main>{% block main %}{% endblock %}</main>
+  </body>
+  <script>
+    function navToggle() {
+      var x = document.getElementById("hamburger-menu");
+      if (x.style.transform === "translateY(0px)") {
+        x.style.transform = "translateY(-100vh)";
+      } else {
+        x.style.transform = "translateY(0px)";
+      }
+    }
+  </script>
+</html>
